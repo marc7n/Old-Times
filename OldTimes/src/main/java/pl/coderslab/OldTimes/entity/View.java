@@ -1,6 +1,6 @@
-package pl.coderslab.OldTimes;
+package pl.coderslab.OldTimes.entity;
 
-public class Views {
+public class View {
     private int id;
     private String image;
 
@@ -22,7 +22,7 @@ public class Views {
 
     @Override
     public String  toString() {
-        return "Views{" +
+        return "View{" +
                 "id=" + id +
                 ", image='" + image + '\'' +
                 '}';

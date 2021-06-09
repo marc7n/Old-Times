@@ -5,6 +5,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Old Times</title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+        input[type=radio] {
+            margin-left: 45px;
+        }
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 <div align="center">
@@ -13,6 +35,10 @@
     <span>Full name:</span><span th:text="${user.surname}"></span><br/>
     <span>E-mail:</span><span th:text="${user.email}"></span><br/>
     <span>Password:</span><span th:text="${user.password}"></span><br/>
+
+</div >
+<div align="center">
+    <h3><a href="/person/list"t>Click here to go to the list</a></h3>
 
 </div>
 

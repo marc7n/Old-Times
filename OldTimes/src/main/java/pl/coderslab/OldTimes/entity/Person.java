@@ -1,10 +1,36 @@
-package pl.coderslab.OldTimes;
+package pl.coderslab.OldTimes.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="person")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "period")
     private String period;
+    @Column(name = "social_status")
     private String socialStatus;
+    @Column(name = "sex")
     private String sex;
+
+    public Person() {
+    }
+
+    public Person(int id, String period, String socialStatus, String sex) {
+        this.id = id;
+        this.period = period;
+        this.socialStatus = socialStatus;
+        this.sex = sex;
+    }
+
+    public Person(String period, String socialStatus, String sex) {
+        this.period = period;
+        this.socialStatus = socialStatus;
+        this.sex = sex;
+    }
 
     public int getId() {
         return id;

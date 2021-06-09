@@ -1,10 +1,32 @@
-package pl.coderslab.OldTimes;
+package pl.coderslab.OldTimes.entity;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @NotNull(message = "put your name")
+    @Size(min = 1, max = 10)
+    @Column(name = "name")
     private String name;
+    @NotNull(message = "put your name")
+    @Size(min = 1, max = 15)
+    @Column(name = "surname")
     private String surname;
+    @Email(message = "You have to type the email")
+    @Column(name = "email")
     private String email;
+    @NotBlank(message = "put your password")
+    @Size(min = 8, max = 15)
+    @Column(name = "password")
     private String password;
 
     public int getId() {

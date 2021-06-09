@@ -1,4 +1,6 @@
-package pl.coderslab.OldTimes;
+package pl.coderslab.OldTimes.service;
+
+import pl.coderslab.OldTimes.entity.Person;
 
 import java.util.List;
 
