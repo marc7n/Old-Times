@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.OldTimes.entity.Person;
+import pl.coderslab.OldTimes.entity.View;
 import pl.coderslab.OldTimes.service.PersonService;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -41,7 +43,16 @@ public class PersonController {
 		Person thePerson = new Person();
 		
 		Model.addAttribute("person", thePerson);
-		
+
+		List<String> periodList = Arrays.asList("ancient", "middle-age", "renaissance");
+		Model.addAttribute("periodList", periodList);
+
+		List<String> socialStatus = Arrays.asList("poor", "medium", "rich");
+		Model.addAttribute("socialStatusList", socialStatus);
+
+		List<String> sex = Arrays.asList("man", "female", "nobody knows");
+		Model.addAttribute("sexList", sex);
+
 		return "add-person";
 	}
 
@@ -56,14 +67,14 @@ public class PersonController {
 		theModel.addAttribute("person", thePerson);
 		
 		// send over to our form
-		return "person/person-form";
+		return "person-form";
 	}
 	
 	
 	@PostMapping("/save")
 	public String savePerson(@ModelAttribute("person") Person thePerson) {
 		
-		// save the employee
+		// save
 		personService.save(thePerson);
 		
 		// use a redirect to prevent duplicate submissions
@@ -74,13 +85,30 @@ public class PersonController {
 	@GetMapping("/delete")
 	public String delete(@RequestParam("personID") int theId) {
 		
-		// delete the employee
+		// delete
 		personService.deleteById(theId);
 		
-		// redirect to /employees/list
+		// redirect to
 		return "redirect:/person/list";
 		
 	}
+	@GetMapping("/showPerson")
+	public String showPerson(@RequestParam("personId") int theId,
+		Model theModel) {
+
+			// get the employee from the service
+			Person thePerson = personService.findById(theId);
+
+			// set employee as a model attribute to pre-populate the form
+			theModel.addAttribute("person", thePerson);
+		View view = new View();
+		theModel.addAttribute("view",view);
+
+
+			return "show-person";
+	}
+
+
 
 }
 

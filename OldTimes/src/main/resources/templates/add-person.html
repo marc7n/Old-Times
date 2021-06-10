@@ -5,11 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-	<title>Save Person</title>
+<title>Save Person</title>
 </head>
 
 <body>
@@ -26,23 +24,33 @@
 		
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
-			
-			<input type="text" th:field="*{period}"
-					class="form-control mb-4 col-4" placeholder="period">
 
-			<input type="text" th:field="*{socialStatus}"
-					class="form-control mb-4 col-4" placeholder="social status">
+			<label>periods:</label>
+			<select th:field="*{period}">
+				<option th:each="p : ${periodList}" th:value="${p}" th:text="${p}" />
+			</select>
+			<br/>
 
-			<input type="text" th:field="*{sex}"
-					class="form-control mb-4 col-4" placeholder="sex">
-				
+			<label>social status:</label>
+			<select th:field="*{socialStatus}">
+				<option th:each="p : ${socialStatusList}" th:value="${p}" th:text="${p}" />
+			</select>
+			<br/>
+			<label>sex:</label>
+			<select th:field="*{sex}">
+				<option th:each="p : ${sexList}" th:value="${p}" th:text="${p}" />
+			</select>
+			<br/>
+
+
 			<button type="submit" class="btn btn-info col-2">Save</button>
 						
 		</form>
 
+
 	
 		<hr>
-		<a th:href="@{/person/list}">Back to Employees List</a>
+		<a th:href="@{/person/list}">Back to Person List</a>
 		
 	</div>
 </body>

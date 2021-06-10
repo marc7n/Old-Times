@@ -5,19 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Old Times</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
 </head>
 <body>
+<div align="center">
 <h2>Welcome on a Old Times</h2>
+<img th:src="@{/images/vintage.png}"/>
 <h3>Please type your name</h3>
+
+<form action="welcomeFormPrint" method="get">
+    <input type="text" name="guestName"
+           placeholder="What's your name?"/>
+    <input type="submit"/>
+
 <h4>or</h4>
 <h5><a href="/register">Click here to register</a></h5>
 
-<form acti  on="welcomeFormPrint" method="get">
-    <input type="text" name="guestName"
-    placeholder="What's your name?"/>
-    <input type="submit"/>
 
 </form>
-
+</div>
 </body>
 </html>

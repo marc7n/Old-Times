@@ -3,7 +3,8 @@ package pl.coderslab.OldTimes.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="person")
+@Table(name = "person")
+
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +16,18 @@ public class Person {
     private String socialStatus;
     @Column(name = "sex")
     private String sex;
+    @OneToOne
+    private View view;
 
     public Person() {
+    }
+
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
     }
 
     public Person(int id, String period, String socialStatus, String sex) {
@@ -30,6 +41,14 @@ public class Person {
         this.period = period;
         this.socialStatus = socialStatus;
         this.sex = sex;
+    }
+
+    public Person(int id, String period, String socialStatus, String sex, View view) {
+        this.id = id;
+        this.period = period;
+        this.socialStatus = socialStatus;
+        this.sex = sex;
+        this.view = view;
     }
 
     public int getId() {

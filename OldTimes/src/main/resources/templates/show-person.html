@@ -2,26 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 	<title>Show Person</title>
 </head>
 
 <body>
-
 	<div class="container">
-	
-		<h3>Person Manage</h3>
-		<hr>
 
-		<hr>
+		<h3>Person details</h3>
+
+
+
+		<a th:object="${view}">
+			<img th:src="@{__${view.image}__}"/>
+		</a>
+
+
+
 		<a th:href="@{/person/list}">Back to Person List</a>
-		
+
 	</div>
 </body>
 

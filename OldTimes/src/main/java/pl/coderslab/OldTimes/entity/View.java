@@ -1,8 +1,26 @@
 package pl.coderslab.OldTimes.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class View {
+    @Id
+    @GeneratedValue(strategy =
+            GenerationType.IDENTITY)
+    @Column
     private int id;
+    @Column
     private String image;
+    @OneToOne
+    public Person person;
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 
     public int getId() {
         return id;
@@ -21,7 +39,7 @@ public class View {
     }
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "View{" +
                 "id=" + id +
                 ", image='" + image + '\'' +
