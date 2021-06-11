@@ -16,10 +16,22 @@ public class Person {
     private String socialStatus;
     @Column(name = "sex")
     private String sex;
-    @OneToOne
+    @Column(name = "description")
+    private String description;
+    @OneToOne(cascade = CascadeType.ALL)
     private View view;
+    @OneToOne(cascade = CascadeType.ALL)
+    private House house;
 
     public Person() {
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 
     public View getView() {
@@ -30,25 +42,37 @@ public class Person {
         this.view = view;
     }
 
-    public Person(int id, String period, String socialStatus, String sex) {
+    public Person(int id, String period, String socialStatus, String sex, String description) {
         this.id = id;
         this.period = period;
         this.socialStatus = socialStatus;
         this.sex = sex;
+        this.description = description;
     }
 
-    public Person(String period, String socialStatus, String sex) {
+    public Person(String period, String socialStatus, String sex, String description) {
         this.period = period;
         this.socialStatus = socialStatus;
         this.sex = sex;
+        this.description = description;
     }
 
-    public Person(int id, String period, String socialStatus, String sex, View view) {
+    public Person(int id, String period, String socialStatus, String sex, String description, View view, House house) {
         this.id = id;
         this.period = period;
         this.socialStatus = socialStatus;
         this.sex = sex;
+        this.description = description;
         this.view = view;
+        this.house = house;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -90,6 +114,9 @@ public class Person {
                 ", period='" + period + '\'' +
                 ", socialStatus='" + socialStatus + '\'' +
                 ", sex='" + sex + '\'' +
+                ", description='" + description + '\'' +
+                ", view=" + view +
+                ", house=" + house +
                 '}';
     }
 }

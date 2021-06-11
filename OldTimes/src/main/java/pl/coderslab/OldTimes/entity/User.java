@@ -1,5 +1,6 @@
 package pl.coderslab.OldTimes.entity;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,18 +14,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @NotNull(message = "put your name")
+
     @Size(min = 1, max = 10)
     @Column(name = "name")
+    @NotBlank @NotNull
     private String name;
-    @NotNull(message = "put your name")
+    @NotBlank @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "surname")
     private String surname;
-    @Email(message = "You have to type the email")
-    @Column(name = "email")
+    @Email @NotBlank
+    @Column(name = "email",unique = false)
     private String email;
-    @NotBlank(message = "put your password")
+    @NotBlank
     @Size(min = 8, max = 15)
     @Column(name = "password")
     private String password;
@@ -69,6 +71,17 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+    }
+
+    public User(int id, String name, String surname, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -79,4 +92,5 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
-}
+
+    }

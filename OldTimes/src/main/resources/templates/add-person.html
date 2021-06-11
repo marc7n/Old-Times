@@ -16,7 +16,7 @@
 	
 		<h3>Person Manage</h3>
 		<hr>
-		
+		<TABLE>
 		<p class="h4 mb-4">Save Person</p>
 	
 		<form action="#" th:action="@{/person/save}"
@@ -40,16 +40,30 @@
 			<select th:field="*{sex}">
 				<option th:each="p : ${sexList}" th:value="${p}" th:text="${p}" />
 			</select>
-			<br/>
+			<br/>Description:</label>
+			<input type="text" th:field="*{description}" /><br/>
 
 
 			<button type="submit" class="btn btn-info col-2">Save</button>
 						
 		</form>
 
+		<form th:action="@{/person/save}"
+			  th:object="${person}" method="post"
+			  enctype="multipart/form-data"
+		>
+			...
+			<div>
 
+				<label>Photos: </label>
+				<input type="fil" name="image" accept="image/png, image/jpeg" />
+
+			</div>
+			...
+		</form>
 	
 		<hr>
+		</TABLE>
 		<a th:href="@{/person/list}">Back to Person List</a>
 		
 	</div>

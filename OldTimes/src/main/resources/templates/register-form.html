@@ -1,40 +1,48 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<html lang="en">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
 <head>
+    <meta charset="UTF-8">
+    <title>Old Times</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+</head>
 
 <body>
-<div align="center">
+
     <h1>User Registration</h1>
     <form action="#" th:action="@{/register}" method="post" th:object="${user}">
-        <label> name:</label>
-        <input type="text" th:field="*{name}" /><br/>
-
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Full name error</span>
-
-
-        <label> surname:</label>
-        <input type="text" th:field="*{surname}" /><br/>
-
-        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{name}">Full name error</span>
-
-
-        <label>E-mail:</label>
-        <input type="text" th:field="*{email}" /><br/>
-
-        <span th:if="${#fields.hasErrors('email')}" th:errors="*{name}">Full name error</span>
-
-        <label>Password:</label>
-        <input type="password" th:field="*{password}" /><br/>
-
-        <span th:if="${#fields.hasErrors('password')}" th:errors="*{name}">Full name error</span>
-
-        <button type="submit">Register</button>
+                <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input type="text" th:field="*{name}"></td>
+                            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+                                Error</td>
+                        </tr>
+                        <tr>
+                            <td>surname:</td>
+                            <td><input type="text" th:field="*{surname}"></td>
+                            <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">surname
+                                Error</td>
+                        </tr>
+                        <tr>
+                            <<td>email:</td>
+                            <td><input type="text" th:field="*{email}"></input></td>
+                            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+                                Error</td>
+                        </tr>
+                        <tr>
+                            <td>password:</td>
+                            <td><input type="text" th:field="*{password}"></input></td>
+                            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password
+                                Error</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </td>
+                        </tr>
+                    </table>
     </form>
-</div>
 
 </body>
 </html>

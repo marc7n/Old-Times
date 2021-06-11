@@ -1,4 +1,4 @@
-package pl.coderslab.OldTimes.web;
+package pl.coderslab.OldTimes.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

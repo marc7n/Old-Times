@@ -3,15 +3,15 @@ package pl.coderslab.OldTimes.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "view")
-public class View {
+@Table(name = "house")
+public class House {
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
     @Column
     private int id;
     @Column
-    private String image;
+    private String picture;
 
     public int getId() {
         return id;
@@ -21,19 +21,23 @@ public class View {
         this.id = id;
     }
 
-    public String getImage() {
-        return image;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     @Override
     public String toString() {
-        return "View{" +
+        return "House{" +
                 "id=" + id +
-                ", image='" + image + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }
+
+
+
+
