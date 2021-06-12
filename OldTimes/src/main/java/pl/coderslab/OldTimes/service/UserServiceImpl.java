@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.coderslab.OldTimes.dao.UserRepository;
 import pl.coderslab.OldTimes.entity.User;
+import pl.coderslab.OldTimes.entity.View;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
 		
 		return theUser;
 	}
+
 
 	@Override
 	public void save(User theUser) {

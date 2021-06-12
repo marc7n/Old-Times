@@ -99,8 +99,7 @@ public class PersonController {
         Person thePerson = personService.findById(theId);
 
         theModel.addAttribute("person", thePerson);
-        View view = new View();
-        theModel.addAttribute("view", view);
+
 
 
         return "show-person";
