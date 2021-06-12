@@ -14,10 +14,10 @@
 
 	<div class="container">
 	
-		<h3>Person Manage</h3>
+		<h3>Person adding</h3>
 		<hr>
 		<TABLE>
-		<p class="h4 mb-4">Save Person</p>
+
 	
 		<form action="#" th:action="@{/person/save}"
 						 th:object="${person}" method="POST">
@@ -25,7 +25,11 @@
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
 
+			<br/>Give name to your person:</label>
+			<input type="text" th:field="*{name}" /><br/>
+
 			<label>periods:</label>
+
 			<select th:field="*{period}">
 				<option th:each="p : ${periodList}" th:value="${p}" th:text="${p}" />
 			</select>

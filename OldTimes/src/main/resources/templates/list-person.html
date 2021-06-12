@@ -26,10 +26,17 @@
         Add Person
     </a>
 
+    <div align="right">
+        <h3><a href="/person/list">Quiz</a></h3>
+
+    </div>
+
+
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
+            <th>Name</th>
             <th>Period</th>
             <th>Social Status</th>
             <th>Sex</th>
@@ -40,6 +47,7 @@
         <tbody>
         <tr th:each="tempPerson : ${persons}">
 
+            <td th:text="${tempPerson.name}"/>
             <td th:text="${tempPerson.period}"/>
             <td th:text="${tempPerson.socialStatus}"/>
             <td th:text="${tempPerson.sex}"/>

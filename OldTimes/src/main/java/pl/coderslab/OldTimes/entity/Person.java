@@ -10,6 +10,8 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "period")
     private String period;
     @Column(name = "social_status")
@@ -65,6 +67,14 @@ public class Person {
         this.description = description;
         this.view = view;
         this.house = house;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
