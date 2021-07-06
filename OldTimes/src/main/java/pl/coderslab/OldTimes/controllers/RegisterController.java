@@ -32,7 +32,6 @@ public class RegisterController {
     @PostMapping("/register")
     public String submitForm(@ModelAttribute("user") @Valid  User user,
         BindingResult result) {
-            System.out.println(user);
 
             if (result.hasErrors()) {
 

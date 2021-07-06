@@ -4,9 +4,8 @@ package pl.coderslab.OldTimes.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.OldTimes.entity.Person;
 import pl.coderslab.OldTimes.entity.House;
-import pl.coderslab.OldTimes.entity.View;
+import pl.coderslab.OldTimes.entity.Person;
 import pl.coderslab.OldTimes.service.PersonService;
 
 import java.util.Arrays;

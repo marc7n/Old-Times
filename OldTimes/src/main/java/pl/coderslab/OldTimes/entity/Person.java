@@ -1,5 +1,8 @@
 package pl.coderslab.OldTimes.entity;
 
+import pl.coderslab.OldTimes.entity.House;
+import pl.coderslab.OldTimes.entity.View;
+
 import javax.persistence.*;
 
 @Entity
